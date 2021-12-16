@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+// Import components
+import '../word-output/word-output';
+import WordOutput from '../word-output/word-output';
+
 // Import style file
 import './word-counter.scss';
 
@@ -18,7 +22,7 @@ const WordCounter = () => {
             <textarea value={textInput} onChange={userInputHandler} cols="50" rows="5"></textarea>
             <section>
                 <h2>Output:</h2>
-                <p>Characters: {textInput.replaceAll('\n', '').length}</p>
+                <WordOutput type="Characters" num={textInput.replaceAll('\n', '').length} />
                 <p>Text: {textInput}</p>
             </section>
         </form>

@@ -11,10 +11,16 @@ const WordCounter = () => {
 
     // Set states
     const [ textInput, setTextInput ] = useState("");
+    const [ wordInput, setWordInput ] = useState([]);
+
+    // Create variables
+    const regSpace = new RegExp('\\s');
 
     // Events
     const userInputHandler = e => {
         setTextInput(e.target.value);
+        setWordInput(e.target.value.split(regSpace));
+        console.log(wordInput);
     }
 
     return (
@@ -23,6 +29,7 @@ const WordCounter = () => {
             <section>
                 <h2>Output:</h2>
                 <WordOutput type="Characters" num={textInput.replaceAll('\n', '').length} />
+                <WordOutput type="Words" num={wordInput.length} />
                 <p>Text: {textInput}</p>
             </section>
         </form>
